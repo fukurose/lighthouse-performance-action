@@ -1,0 +1,15 @@
+{
+  "name": "reports",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:fukurose/lighthouse-performance-action.git",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0",
+    "@lhci/cli": "0.9.0"
+  },
+  "devDependencies": {
+    "prettier": "2.5.1"
+  }
+}
