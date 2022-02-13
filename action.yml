@@ -1,0 +1,34 @@
+name: 'Lighthouse Performance Action'
+description: 'Measure performance with Lighthouse CI and output those values.'
+inputs:
+  config:
+    description: 'Path to a lighthouse config file'
+    required: true
+outputs:
+  url:
+    description: 'Measured URL'
+  performance:
+    description: 'Performance of the URL'
+  accessibility:
+    description: 'accessibility of the URL'
+  bestPractices:
+    description: 'bestPractices of the URL'
+  seo:
+    description: 'seo of the URL'
+  pwa:
+    description: 'pwa of the URL'
+  firstContentfulPaint:
+    description: 'first contentful paint of the URL'
+  speedIndex:
+    description: 'speed index of the URL'
+  largestContentfulPaint:
+    description: 'largest contentful paint of the URL'
+  interactive:
+    description: 'interactive of the URL'
+  totalBlockingTime:
+    description: 'total blocking time of the URL'
+  cumulativeLayoutShift:
+    description: 'cumulative layout shift of the URL'
+runs:
+  using: 'node16'
+  main: 'index.js'

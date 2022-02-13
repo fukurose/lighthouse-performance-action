@@ -1,0 +1,28 @@
+on: [push]
+
+jobs:
+  lighthouse-performance-action:
+    runs-on: ubuntu-latest
+    name: Lighthouse Performance Action
+    steps:
+      - uses: actions/checkout@v2
+      - name: Output lighthouse performance
+        id: lighthouse
+        uses: ./
+        with:
+          config: './lighthouserc.js'
+      # Use the output from the `lighthouse` step
+      - name: Get the output Performance
+        run: |
+          echo "url is ${{ steps.lighthouse.outputs.url }}"
+          echo "performance is ${{ steps.lighthouse.outputs.performance }}"
+          echo "accessibility is ${{ steps.lighthouse.outputs.accessibility }}"
+          echo "bestPractices is ${{ steps.lighthouse.outputs.bestPractices }}"
+          echo "seo is ${{ steps.lighthouse.outputs.seo }}"
+          echo "pwa is ${{ steps.lighthouse.outputs.pwa }}"
+          echo "firstContentfulPaint is ${{ steps.lighthouse.outputs.firstContentfulPaint }}"
+          echo "speedIndex is ${{ steps.lighthouse.outputs.speedIndex }}"
+          echo "largestContentfulPaint is ${{ steps.lighthouse.outputs.largestContentfulPaint }}"
+          echo "interactive is ${{ steps.lighthouse.outputs.interactive }}"
+          echo "totalBlockingTime is ${{ steps.lighthouse.outputs.totalBlockingTime }}"
+          echo "publicUrl is ${{ steps.lighthouse.outputs.publicUrl }}"
