@@ -2,11 +2,9 @@ const fs = require('fs')
 
 exports.parseAudits = async function parseAudits() {
   const manifest = JSON.parse(fs.readFileSync('./result/manifest.json', 'utf8'))
-  console.log(manifest)
   const medianResults = await manifest.filter(function (item) {
     return item.isRepresentativeRun
   })
-  console.log(medianResults)
 
   return await medianResults.map((medianResult) => {
     const audits = JSON.parse(fs.readFileSync(medianResult.jsonPath, 'utf8')).audits
