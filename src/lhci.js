@@ -3,8 +3,14 @@ const childProcess = require('child_process')
 const lhci = require.resolve('@lhci/cli/src/cli')
 
 function run(command, ...options) {
-  configFile = core.getInput('config')
-  const result = childProcess.spawnSync('node', [lhci, command, `config=${configFile}`, ...options])
+  const configFile = core.getInput('config')
+  console.log('use config:', configFile)
+  const result = childProcess.spawnSync('node', [
+    lhci,
+    command,
+    `config=./.github/workflows/lighthouserc.js`,
+    ...options,
+  ])
   console.log(result.status == 0 ? result.stdout.toString() : result.stderr.toString())
 
   return result.status
