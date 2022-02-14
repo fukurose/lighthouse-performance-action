@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Output lighthouse performance
         id: lighthouse
-        uses: ./
+        uses: fukurose/lighthouse-performance-action@1.0.0
         with:
           configFile: './.github/workflows/lighthouserc.js'
       # Use the output from the `lighthouse` step
