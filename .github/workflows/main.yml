@@ -10,7 +10,7 @@ jobs:
         id: lighthouse
         uses: ./
         with:
-          config: './lighthouserc.js'
+          config: './github/workflows/lighthouserc.js'
       # Use the output from the `lighthouse` step
       - name: Get the output Performance
         run: |
