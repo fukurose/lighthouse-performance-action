@@ -1,7 +1,7 @@
 name: 'Lighthouse Performance Action'
 description: 'Measure performance with Lighthouse CI and output those values.'
 inputs:
-  config:
+  configFile:
     description: 'Path to a lighthouse config file'
     required: true
 outputs:
