@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Output lighthouse performance
         id: lighthouse
-        uses: fukurose/lighthouse-performance-action@1.0.0
+        uses: ./
         with:
           configFile: './.github/workflows/lighthouserc.js'
       # Use the output from the `lighthouse` step
@@ -25,6 +25,7 @@ jobs:
           echo "largestContentfulPaint is ${{ steps.lighthouse.outputs.url1_largestContentfulPaint }}"
           echo "interactive is ${{ steps.lighthouse.outputs.url1_interactive }}"
           echo "totalBlockingTime is ${{ steps.lighthouse.outputs.url1_totalBlockingTime }}"
+          echo "cumulativeLayoutShift is ${{ steps.lighthouse.outputs.url1_cumulativeLayoutShift }}"
           echo "publicUrl is ${{ steps.lighthouse.outputs.url1_publicUrl }}"
           echo "url is ${{ steps.lighthouse.outputs.url2 }}"
           echo "performance is ${{ steps.lighthouse.outputs.url2_performance }}"
@@ -37,4 +38,5 @@ jobs:
           echo "largestContentfulPaint is ${{ steps.lighthouse.outputs.url2_largestContentfulPaint }}"
           echo "interactive is ${{ steps.lighthouse.outputs.url2_interactive }}"
           echo "totalBlockingTime is ${{ steps.lighthouse.outputs.url2_totalBlockingTime }}"
+          echo "cumulativeLayoutShift is ${{ steps.lighthouse.outputs.url2_cumulativeLayoutShift }}"
           echo "publicUrl is ${{ steps.lighthouse.outputs.url2_publicUrl }}"
