@@ -13,6 +13,7 @@ exports.setOutput = async function setOutput(results) {
   core.setOutput('largestContentfulPaint', firstResult.largestContentfulPaint)
   core.setOutput('interactive', firstResult.interactive)
   core.setOutput('totalBlockingTime', firstResult.totalBlockingTime)
+  core.setOutput('cumulativeLayoutShift', firstResult.cumulativeLayoutShift)
   core.setOutput('publicUrl', firstResult.publicUrl)
 
   for (let i = 1; i <= results.length; i++) {
@@ -28,6 +29,7 @@ exports.setOutput = async function setOutput(results) {
     core.setOutput(`url${i}_largestContentfulPaint`, result.largestContentfulPaint)
     core.setOutput(`url${i}_interactive`, result.interactive)
     core.setOutput(`url${i}_totalBlockingTime`, result.totalBlockingTime)
+    core.setOutput(`url${i}_cumulativeLayoutShift`, result.cumulativeLayoutShift)
     core.setOutput(`url${i}_publicUrl`, result.publicUrl)
   }
 }
