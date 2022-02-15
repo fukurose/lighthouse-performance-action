@@ -18,11 +18,14 @@ exports.setOutput = async function setOutput(results) {
   for (let i = 1; i <= results.length; i++) {
     let result = results[i - 1]
     core.setOutput(`url${i}`, result.url)
-    core.setOutput(`url${i}_performance`, result.summary.performance)
-    core.setOutput(`url${i}_accessibility`, result.summary.accessibility)
-    core.setOutput(`url${i}_bestPractices`, result.summary['best-practices'])
-    core.setOutput(`url${i}_seo`, result.summary.seo)
-    core.setOutput(`url${i}_pwa`, result.summary.pwa)
+
+    // These values are decimal points. So need to multiply them by 100.
+    core.setOutput(`url${i}_performance`, result.summary.performance * 100)
+    core.setOutput(`url${i}_accessibility`, result.summary.accessibility * 100)
+    core.setOutput(`url${i}_bestPractices`, result.summary['best-practices'] * 100)
+    core.setOutput(`url${i}_seo`, result.summary.seo * 100)
+    core.setOutput(`url${i}_pwa`, result.summary.pwa * 100)
+
     core.setOutput(`url${i}_firstContentfulPaint`, result.firstContentfulPaint)
     core.setOutput(`url${i}_speedIndex`, result.speedIndex)
     core.setOutput(`url${i}_largestContentfulPaint`, result.largestContentfulPaint)
